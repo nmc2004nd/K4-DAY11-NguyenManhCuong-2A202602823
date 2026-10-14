@@ -1,0 +1,47 @@
+{
+ "format": "avsim-studio/1",
+ "params": {
+  "cutT0": 6.5,
+  "cutDur": 2.4,
+  "cutV": 15.0,
+  "pedT0": 11,
+  "pedV": 1.45,
+  "busGo": 17,
+  "cutDs": -4.0,
+  "tgT": 0.9,
+  "mu": 0.8,
+  "cutGap": 12,
+  "cutBrake": 0.0,
+  "pedGap": 4.5,
+  "pedLook": 1,
+  "civil": true
+ },
+ "policy": {},
+ "hazards": [
+  {
+   "x": 160,
+   "side": "S",
+   "v": 2.0,
+   "t0": 0,
+   "trig": 37,
+   "type": "ped"
+  }
+ ],
+ "ego": "planner",
+ "space": {
+  "h0_x": [
+   130,
+   260
+  ],
+  "h0_v": [
+   1.0,
+   2.5
+  ],
+  "h0_trig": [
+   8,
+   40
+  ]
+ },
+ "exposure": 0.02,
+ "why": "Người băng ngang giữa khối nhà (không có vạch), bước ra từ lề nam khi xe ta còn cách 8-40 m. space: h0_x 130-260 m = mọi điểm giữa khối phía sau vạch qua đường (x=122) mà xe ta còn tới được trong 24 s; h0_v 1,0-2,5 m/s = từ đi bộ chậm (người già ~1,0) tới rảo bước/chạy chậm khi băng ẩu (2,5 = trần tốc độ người đi bộ dùng trong is_feasible); h0_trig 8-40 m = khe chấp nhận khi băng ẩu ~1-4 s ở 10 m/s (người băng giữa đường chấp nhận khe ngắn hơn ở vạch; tài liệu gap acceptance mid-block thường 2-5 s). exposure 0,02/chuyến = ước lượng thô, KHÔNG đo: giả sử ~20 lượt băng giữa khối mỗi giờ trên đoạn 300 m của phố đô thị đông (đường phố VN, băng ẩu phổ biến), xe ta qua đoạn này ~25 s -> ~0,14 lượt băng mỗi chuyến, và ~15% trong số đó bước ra khi xe còn trong 40 m -> ~0,02. Cần đếm thật bằng camera/video giao thông của đúng loại phố (vd. dữ liệu đếm người đi bộ mid-block) để thay."
+}
